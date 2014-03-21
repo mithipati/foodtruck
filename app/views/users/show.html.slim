@@ -1,6 +1,14 @@
 h3 User
 p
-  | User: #{@user.name}
-p
-  | Email: #{@user.email if @user.email}
-= link_to 'Edit account', edit_user_path
+  | Hello, #{@user.name}!
+
+= simple_form_for ([@user, @truck]) do |f|
+  = f.input :handle
+  = f.submit 'Add Truck', class: 'button'
+
+img src="http://placehold.it/500x500"
+br
+- @user.trucks.each do |truck|
+  = truck.handle
+
+
