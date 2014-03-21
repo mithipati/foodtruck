@@ -8,8 +8,8 @@
 
 # Add application configuration variables here, as shown below.
 #
-MANDRILL_USERNAME: Your_Username
-MANDRILL_APIKEY: Your_API_Key
-ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
-ADMIN_PASSWORD: changeme
+MANDRILL_USERNAME: neil.mithipati@gmail.com
+MANDRILL_APIKEY: wZS-F4grNHQKL2sOTbOuKA
+ADMIN_NAME: Neil M
+ADMIN_EMAIL: nmithipati@yahoo.com
+ADMIN_PASSWORD: qwerty12
