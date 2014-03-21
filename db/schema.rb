@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321151647) do
+ActiveRecord::Schema.define(version: 20140321153351) do
+
+  create_table "truck_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "truck_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "truck_users", ["truck_id"], name: "index_truck_users_on_truck_id"
+  add_index "truck_users", ["user_id"], name: "index_truck_users_on_user_id"
+
+  create_table "trucks", force: true do |t|
+    t.string   "handle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trucks", ["handle"], name: "index_trucks_on_handle"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
