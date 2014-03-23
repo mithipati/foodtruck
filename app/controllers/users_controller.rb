@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+include ApplicationHelper
   before_filter :authenticate_user!
 
   def index
@@ -8,6 +9,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @truck = Truck.new
+    @response
+
   end
 
 end
