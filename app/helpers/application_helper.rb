@@ -28,4 +28,26 @@ module ApplicationHelper
     end
   end
 
+  def addresses_for(client)
+    pattern1 = /\w+\s+(&amp;)\s+\w+/i
+    pattern2 = /\w+(&amp;)\w+/i
+    pattern3 = /\w+\/\w+/i
+    pattern4 = /\w+\s+\/\s+\w+/i
+    addresses = client.user_timeline('chilantrobbq').map do |tweet|
+      if tweet["text"][pattern1]
+        tweet["text"][pattern1]
+      elsif tweet["text"][pattern2]
+        tweet["text"][pattern2]
+      elsif tweet["text"][pattern3]
+        tweet["text"][pattern3]
+      elsif tweet["text"][pattern4]
+        tweet["text"][pattern4]
+      else
+        "Invalid"
+      end
+    end
+    # .gsub(/(amp;)/,'')
+    addresses.first
+  end
+
 end

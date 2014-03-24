@@ -11,6 +11,7 @@ br
 - @user.trucks.each do |truck|
   = truck.handle
 br
-= @client.user_timeline('chilantrobbq')
+
+= addresses_for(@client)
 
 
