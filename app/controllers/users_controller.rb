@@ -9,7 +9,9 @@ include ApplicationHelper
   def show
     @user = User.find(params[:id])
     @truck = Truck.new
-    @response = uni_get
+
+    @client = twitterclient
+
 
   end
 

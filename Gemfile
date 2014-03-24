@@ -14,8 +14,7 @@ gem 'foundation-rails'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'unirest'
-gem 'ruby-hmac'
-gem 'oauth-plugin'
+gem 'twitter'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
