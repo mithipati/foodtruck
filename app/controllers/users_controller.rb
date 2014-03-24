@@ -9,7 +9,7 @@ include ApplicationHelper
   def show
     @user = User.find(params[:id])
     @truck = Truck.new
-    @response
+    @response = uni_get
 
   end
 
