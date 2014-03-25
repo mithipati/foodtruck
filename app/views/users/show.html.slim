@@ -11,6 +11,10 @@ br
 - @user.trucks.each do |truck|
   = truck.handle
 br
+- @client.user_timeline('chilantrobbq').each do |tweet|
+  = tweet['text']
+  |
+  br
 
 = addresses_for(@client)
 
