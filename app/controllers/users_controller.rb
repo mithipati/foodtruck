@@ -12,7 +12,6 @@ include ApplicationHelper
 
     @client = twitterclient
 
-
   end
 
 end
