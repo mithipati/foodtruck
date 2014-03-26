@@ -6,9 +6,9 @@ class TrucksController < ApplicationController
   def create
     @truck = Truck.new(truck_params)
     if @truck.save
-      redirect_to user_path
+      redirect_to current_user
     else
-      render 'new'
+      redirect_to current_user
     end
   end
 

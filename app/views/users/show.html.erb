@@ -1,4 +1,29 @@
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPq8s_Df867ocOxl8pxTVZBcYBxjcrp4&v=3.exp&sensor=false"></script>
+<h3>User</h3>
+<p>Hello, <%= @user.name %></p>
+
+  <%= simple_form_for ([@user, @truck]) do |f| %>
+    <%= f.input :handle %>
+    <%= f.submit 'Add Truck', class: 'button' %>
+    <% end %>
+  <div id="map-canvas" style="width: 320px; height: 480px;"></div>
+  <div>
+    <input id="address" type="textbox" value="Austin, TX">
+    <input type="button" value="Encode" onclick="codeAddress()">
+  </div>
+
+  <br />
+  <% @user.trucks.each do |truck| %>
+    <%= truck.handle %>
+    <% end %>
+  <br />
+  <% @client.user_timeline('chilantrobbq').each do |tweet| %>
+    <%= tweet['text'] %>
+    <% end %>
+    <br />
+
+  <%= addresses_for(@client) %>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPq8s_Df867ocOxl8pxTVZBcYBxjcrp4&v=3.exp&sensor=false"></script>
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -34,30 +59,6 @@ var geocoder;
   });
 
 </script>
-<h3>User</h3>
-<p>Hello, <%= @user.name %></p>
-
-  <%= simple_form_for ([@user, @truck]) do |f| %>
-    <%= f.input :handle %>
-    <%= f.submit 'Add Truck', class: 'button' %>
-    <% end %>
-  <div id="map-canvas" style="width: 320px; height: 480px;"></div>
-  <div>
-    <input id="address" type="textbox" value="Austin, TX">
-    <input type="button" value="Encode" onclick="codeAddress()">
-  </div>
-
-  <br />
-  <% @user.trucks.each do |truck| %>
-    <%= truck.handle %>
-    <% end %>
-  <br />
-  <% @client.user_timeline('chilantrobbq').each do |tweet| %>
-    <%= tweet['text'] %>
-    <% end %>
-    <br />
-
-  <%= addresses_for(@client) %>
 
 
 
