@@ -1,7 +1,7 @@
 <h3>User</h3>
 <p>Hello, <%= @user.name %></p>
 
-  <%= simple_form_for ([@user, @truck]) do |f| %>
+  <%= simple_form_for ([@user, Truck.new]) do |f| %>
     <%= f.input :handle %>
     <%= f.submit 'Add Truck', class: 'button' %>
     <% end %>
@@ -12,6 +12,7 @@
   </div>
 
   <br />
+  <%= 'yeah baby' %> <br />
   <% @user.trucks.each do |truck| %>
     <%= truck.handle %>
     <% end %>

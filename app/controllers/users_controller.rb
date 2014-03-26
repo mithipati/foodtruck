@@ -8,7 +8,6 @@ include ApplicationHelper
 
   def show
     @user = User.find(params[:id])
-    @truck = Truck.new
 
     @client = twitterclient
 
