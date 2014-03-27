@@ -11,9 +11,6 @@ class User < ActiveRecord::Base
     # @user.trucks.map do |truck|
     #   if addresses_for(truck.handle)
     #   elsif "Invalid"
-
-
-    end
   end
 
 
