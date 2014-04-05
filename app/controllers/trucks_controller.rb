@@ -1,21 +1,24 @@
 class TrucksController < ApplicationController
-  def new
-    @truck = Truck.new
-  end
+  before_action :set_instance_variables, only: [:create]
+
 
   def create
-    @truck = Truck.new(truck_params)
-    if @truck.save
-      redirect_to user_path
+    @truck = @user.trucks.create(truck_params)
+    if @truck.valid?
+      redirect_to @user
     else
-      render 'new'
+      redirect_to root_path
     end
   end
 
 
   private
+    def set_instance_variables
+      @user = User.find(params[:user_id])
+    end
+
     def truck_params
-      params.require(:truck).permit(:handle)
+      params.require(:truck).permit(:handle, :user_id, :truck_id, :description, :location)
     end
 
 end

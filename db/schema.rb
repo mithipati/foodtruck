@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321153351) do
+ActiveRecord::Schema.define(version: 20140405214641) do
 
   create_table "truck_users", force: true do |t|
     t.integer  "user_id"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20140321153351) do
     t.string   "handle"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "location"
   end
 
   add_index "trucks", ["handle"], name: "index_trucks_on_handle"
