@@ -5,24 +5,20 @@
     <%= f.input :handle %>
     <%= f.submit 'Add Truck', class: 'button' %>
     <% end %>
-  <div id="map-canvas" style="width: 320px; height: 480px;"></div>
+  <div id="map-canvas" style="width: 600px; height: 480px;"></div>
   <div>
     <input id="address" type="textbox" value="Austin, TX">
     <input type="button" value="Encode" onclick="codeAddress()">
   </div>
 
   <br />
-  <%= 'yeah baby' %> <br />
   <% @user.trucks.each do |truck| %>
-    <%= truck.handle %>
+    <h3><%= truck.handle %></h3><br />
+    Description: <%= @client.user_timeline(truck.handle)[0]['user']['description'] %><br/>
+    Last known location: <%= addresses_for(truck.handle) %><br/><br />
     <% end %>
   <br />
-  <% @client.user_timeline('chilantrobbq').each do |tweet| %>
-    <%= tweet['text'] %>
-    <% end %>
-    <br />
-
-  <%= addresses_for(@client) %>
+  <br />
 
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPq8s_Df867ocOxl8pxTVZBcYBxjcrp4&v=3.exp&sensor=false"></script>
 

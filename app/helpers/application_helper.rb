@@ -28,13 +28,16 @@ module ApplicationHelper
     end
   end
 
-  def addresses_for(client)
+  def addresses_for(handle)
+    pattern0 = /\(.+\)/i
     pattern1 = /\w+\s+(&amp;)\s+\w+/i
     pattern2 = /\w+(&amp;)\w+/i
     pattern3 = /[^http|.\w+]\w+\/\w+/i
     pattern4 = /\w+\s+\/\s+\w+/i
-    addresses = client.user_timeline('chilantrobbq').map do |tweet|
-      if tweet["text"][pattern1]
+    addresses = @client.user_timeline(handle).map do |tweet|
+      if tweet["text"][pattern0]
+        tweet["text"][pattern0]
+      elsif tweet["text"][pattern1]
         tweet["text"][pattern1]
       elsif tweet["text"][pattern2]
         tweet["text"][pattern2]
